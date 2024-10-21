@@ -1,7 +1,13 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import BookCard from "@/components/BookCard";
 import booksData from "@/data/blog.json";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -17,7 +23,9 @@ const TopSellers = () => {
     const filtered =
       selectedCategory === "Choose a genre"
         ? booksData
-        : booksData.filter((book) => book.category.toLowerCase() === selectedCategory.toLowerCase());
+        : booksData.filter(
+            (book) => book.category.toLowerCase() === selectedCategory.toLowerCase()
+          );
 
     setFilteredBooks(filtered);
   }, [selectedCategory]);
@@ -26,7 +34,7 @@ const TopSellers = () => {
     <section className="py-10">
       <div className="mb-8 flex items-center">
         <Select value={selectedCategory} onValueChange={setSelectedCategory}>
-          <SelectTrigger className="border w-[200px] border-gray-300 rounded-md px-4 py-2 focus:ring-0 focus:outline-none">
+          <SelectTrigger className="w-[200px] rounded-md border border-gray-300 px-4 py-2 focus:outline-none focus:ring-0">
             <SelectValue placeholder="Choose a genre" />
           </SelectTrigger>
           <SelectContent>

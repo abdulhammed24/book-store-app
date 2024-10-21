@@ -48,13 +48,13 @@ const Login = () => {
   const onSubmit = (data) => console.log(data);
 
   return (
-    <div className="h-[calc(100vh-120px)] flex justify-center items-center ">
-      <div className="w-full max-w-sm mx-auto bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-        <h2 className="text-xl font-semibold mb-4">Please Login</h2>
+    <div className="flex h-[calc(100vh-120px)] items-center justify-center">
+      <div className="mx-auto mb-4 w-full max-w-sm rounded bg-white px-8 pb-8 pt-6 shadow-md">
+        <h2 className="mb-4 text-xl font-semibold">Please Login</h2>
 
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
+            <label className="mb-2 block text-sm font-bold text-gray-700" htmlFor="email">
               Email
             </label>
             <input
@@ -63,11 +63,11 @@ const Login = () => {
               name="email"
               id="email"
               placeholder="Email Address"
-              className="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow"
+              className="w-full appearance-none rounded border px-3 py-2 leading-tight shadow focus:shadow focus:outline-none"
             />
           </div>
           <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="password">
+            <label className="mb-2 block text-sm font-bold text-gray-700" htmlFor="password">
               Password
             </label>
             <input
@@ -76,17 +76,17 @@ const Login = () => {
               name="password"
               id="password"
               placeholder="Password"
-              className="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow"
+              className="w-full appearance-none rounded border px-3 py-2 leading-tight shadow focus:shadow focus:outline-none"
             />
           </div>
-          {message && <p className="text-red-500 text-xs italic mb-3">{message}</p>}
+          {message && <p className="mb-3 text-xs italic text-red-500">{message}</p>}
           <div>
-            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-8 rounded focus:outline-none">
+            <button className="rounded bg-blue-500 px-8 py-2 font-bold text-white hover:bg-blue-700 focus:outline-none">
               Register{" "}
             </button>
           </div>
         </form>
-        <p className="align-baseline font-medium mt-4 text-sm">
+        <p className="mt-4 align-baseline text-sm font-medium">
           Have an account? Please{" "}
           <Link href="/login" className="text-blue-500 hover:text-blue-700">
             Login
@@ -97,14 +97,16 @@ const Login = () => {
         <div className="mt-4">
           <button
             onClick={handleGoogleSignIn}
-            className="w-full flex flex-wrap gap-1 items-center justify-center bg-secondary hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none"
+            className="flex w-full flex-wrap items-center justify-center gap-1 rounded bg-secondary px-4 py-2 font-bold text-white hover:bg-blue-700 focus:outline-none"
           >
             <FaGoogle className="mr-2" />
             Sign in with Google
           </button>
         </div>
 
-        <p className="mt-5 text-center text-gray-500 text-xs">©2025 Book Store. All rights reserved.</p>
+        <p className="mt-5 text-center text-xs text-gray-500">
+          ©2025 Book Store. All rights reserved.
+        </p>
       </div>
     </div>
   );

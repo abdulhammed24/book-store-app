@@ -40,27 +40,27 @@ const Navbar = () => {
 
   return (
     <>
-      <header className="max-w-screen-2xl mx-auto px-4 py-6">
-        <nav className="flex justify-between items-center">
+      <header className="mx-auto max-w-screen-2xl px-4 py-6">
+        <nav className="flex items-center justify-between">
           {/* left side */}
-          <div className="flex items-center md:gap-16 gap-4">
+          <div className="flex items-center gap-4 md:gap-16">
             <Link href="/">
               <HiMiniBars3CenterLeft className="size-6" />
             </Link>
 
             {/* search input */}
-            <div className="relative sm:w-72 w-40 space-x-2">
-              <IoSearchOutline className="absolute inline-block left-3 inset-y-2" />
+            <div className="relative w-40 space-x-2 sm:w-72">
+              <IoSearchOutline className="absolute inset-y-2 left-3 inline-block" />
               <input
                 type="text"
                 placeholder="Search here"
-                className="bg-[#EAEAEA] w-full py-1 md:px-8 px-6 rounded-md focus:outline-none"
+                className="w-full rounded-md bg-[#EAEAEA] px-6 py-1 focus:outline-none md:px-8"
               />
             </div>
           </div>
 
           {/* rigth side */}
-          <div className="relative flex items-center md:space-x-3 space-x-2">
+          <div className="relative flex items-center space-x-2 md:space-x-3">
             <div>
               {currentUser ? (
                 <>
@@ -75,17 +75,22 @@ const Navbar = () => {
                   </button>
                   {/* show dropdowns */}
                   {isDropdownOpen && (
-                    <div className="absolute right-0 mt-2 w-48 bg-white shadow-lg rounded-md z-40">
+                    <div className="absolute right-0 z-40 mt-2 w-48 rounded-md bg-white shadow-lg">
                       <ul className="py-2">
                         {navigation.map((item) => (
                           <li key={item.name} onClick={() => setIsDropdownOpen(false)}>
-                            <Link href={item.href} className="block px-4 py-2 text-sm hover:bg-gray-100">
+                            <Link
+                              href={item.href}
+                              className="block px-4 py-2 text-sm hover:bg-gray-100"
+                            >
                               {item.name}
                             </Link>
                           </li>
                         ))}
                         <li>
-                          <button className="block w-full text-left px-4 py-2 text-sm hover:bg-gray-100">Logout</button>
+                          <button className="block w-full px-4 py-2 text-left text-sm hover:bg-gray-100">
+                            Logout
+                          </button>
                         </li>
                       </ul>
                     </div>
@@ -102,8 +107,11 @@ const Navbar = () => {
               <HiOutlineHeart className="size-6" />
             </button>
 
-            <button onClick={toggleCart} className="bg-primary p-1 sm:px-6 px-2 flex items-center rounded-sm">
-              <HiOutlineShoppingCart className="w-6 h-6" />
+            <button
+              onClick={toggleCart}
+              className="flex items-center rounded-sm bg-primary p-1 px-2 sm:px-6"
+            >
+              <HiOutlineShoppingCart className="h-6 w-6" />
               {cartItemsCount > 0 ? (
                 <span className="text-sm font-semibold sm:ml-1">{cartItemsCount}</span>
               ) : (
@@ -116,11 +124,14 @@ const Navbar = () => {
 
       {isCartOpen && (
         <>
-          <div className="fixed top-0 right-0 h-full w-96 bg-white shadow-lg transform transition-transform duration-300 ease-in-out z-50 translate-x-0 overflow-y-auto">
+          <div className="fixed right-0 top-0 z-50 h-full w-96 translate-x-0 transform overflow-y-auto bg-white shadow-lg transition-transform duration-300 ease-in-out">
             <Cart onClose={() => setIsCartOpen(false)} cartItems={cart} />
           </div>
           {/* Overlay */}
-          <div className="fixed inset-0 bg-black bg-opacity-50 z-40" onClick={() => setIsCartOpen(false)}></div>
+          <div
+            className="fixed inset-0 z-40 bg-black bg-opacity-50"
+            onClick={() => setIsCartOpen(false)}
+          ></div>
         </>
       )}
     </>

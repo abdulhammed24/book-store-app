@@ -11,7 +11,9 @@ import { clearCart } from "@/rtk/features/cartSlice";
 
 const Checkout = () => {
   const cartItems = useSelector((state) => state.cart);
-  const totalPrice = cartItems.reduce((total, item) => total + item.newPrice * item.quantity, 0).toFixed(2);
+  const totalPrice = cartItems
+    .reduce((total, item) => total + item.newPrice * item.quantity, 0)
+    .toFixed(2);
   const [isChecked, setIsChecked] = useState(false);
   const router = useRouter();
   const { toast } = useToast();
@@ -37,26 +39,37 @@ const Checkout = () => {
   };
 
   return (
-    <section className="min-h-screen p-6 bg-gray-100">
-      <div className="container max-w-screen-xl mx-auto">
-        <h1 className="text-3xl font-bold mb-6">Checkout</h1>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <section className="min-h-screen bg-gray-100 p-6">
+      <div className="container mx-auto max-w-screen-xl">
+        <h1 className="mb-6 text-3xl font-bold">Checkout</h1>
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
           <div>
-            <h2 className="font-semibold text-xl text-gray-600 mb-4">Order Summary</h2>
-            <div className="bg-white rounded shadow-lg p-6 mb-6">
+            <h2 className="mb-4 text-xl font-semibold text-gray-600">Order Summary</h2>
+            <div className="mb-6 rounded bg-white p-6 shadow-lg">
               {cartItems.map((item) => (
-                <div key={item._id} className="flex items-center mb-4 pb-4 border-b last:border-b-0">
-                  <div className="w-16 h-16 mr-4">
-                    <Image src={item.coverImage} alt={item.title} width={64} height={64} className="rounded" />
+                <div
+                  key={item._id}
+                  className="mb-4 flex items-center border-b pb-4 last:border-b-0"
+                >
+                  <div className="mr-4 h-16 w-16">
+                    <Image
+                      src={item.coverImage}
+                      alt={item.title}
+                      width={64}
+                      height={64}
+                      className="rounded"
+                    />
                   </div>
                   <div className="flex-grow">
                     <h3 className="font-semibold">{item.title}</h3>
                     <p className="text-gray-600">Quantity: {item.quantity}</p>
-                    <p className="text-gray-600">${(item.newPrice * item.quantity).toFixed(2)} USD</p>
+                    <p className="text-gray-600">
+                      ${(item.newPrice * item.quantity).toFixed(2)} USD
+                    </p>
                   </div>
                 </div>
               ))}
-              <div className="mt-4 pt-4 border-t">
+              <div className="mt-4 border-t pt-4">
                 <div className="flex justify-between font-semibold">
                   <span>Total</span>
                   <span>${totalPrice} USD</span>
@@ -66,8 +79,8 @@ const Checkout = () => {
           </div>
 
           <div>
-            <h2 className="font-semibold text-xl text-gray-600 mb-4">Shipping Information</h2>
-            <div className="bg-white rounded shadow-lg p-6">
+            <h2 className="mb-4 text-xl font-semibold text-gray-600">Shipping Information</h2>
+            <div className="rounded bg-white p-6 shadow-lg">
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-700">
@@ -79,7 +92,9 @@ const Checkout = () => {
                     id="name"
                     className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                   />
-                  {errors.name && <span className="text-red-500 text-sm">{errors.name.message}</span>}
+                  {errors.name && (
+                    <span className="text-sm text-red-500">{errors.name.message}</span>
+                  )}
                 </div>
 
                 <div>
@@ -95,7 +110,9 @@ const Checkout = () => {
                     id="email"
                     className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                   />
-                  {errors.email && <span className="text-red-500 text-sm">{errors.email.message}</span>}
+                  {errors.email && (
+                    <span className="text-sm text-red-500">{errors.email.message}</span>
+                  )}
                 </div>
 
                 <div>
@@ -108,7 +125,9 @@ const Checkout = () => {
                     id="phone"
                     className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                   />
-                  {errors.phone && <span className="text-red-500 text-sm">{errors.phone.message}</span>}
+                  {errors.phone && (
+                    <span className="text-sm text-red-500">{errors.phone.message}</span>
+                  )}
                 </div>
 
                 <div>
@@ -121,7 +140,9 @@ const Checkout = () => {
                     id="address"
                     className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                   />
-                  {errors.address && <span className="text-red-500 text-sm">{errors.address.message}</span>}
+                  {errors.address && (
+                    <span className="text-sm text-red-500">{errors.address.message}</span>
+                  )}
                 </div>
 
                 <div className="grid grid-cols-2 gap-4">
@@ -135,7 +156,9 @@ const Checkout = () => {
                       id="city"
                       className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                     />
-                    {errors.city && <span className="text-red-500 text-sm">{errors.city.message}</span>}
+                    {errors.city && (
+                      <span className="text-sm text-red-500">{errors.city.message}</span>
+                    )}
                   </div>
                   <div>
                     <label htmlFor="zipcode" className="block text-sm font-medium text-gray-700">
@@ -147,7 +170,9 @@ const Checkout = () => {
                       id="zipcode"
                       className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                     />
-                    {errors.zipcode && <span className="text-red-500 text-sm">{errors.zipcode.message}</span>}
+                    {errors.zipcode && (
+                      <span className="text-sm text-red-500">{errors.zipcode.message}</span>
+                    )}
                   </div>
                 </div>
 
@@ -157,7 +182,7 @@ const Checkout = () => {
                     id="terms"
                     checked={isChecked}
                     onChange={(e) => setIsChecked(e.target.checked)}
-                    className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
+                    className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
                   />
                   <label htmlFor="terms" className="ml-2 block text-sm text-gray-900">
                     I agree to the{" "}
@@ -170,7 +195,7 @@ const Checkout = () => {
                 <button
                   type="submit"
                   disabled={!isChecked}
-                  className="w-full bg-indigo-600 border border-transparent rounded-md shadow-sm py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50"
+                  className="w-full rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 disabled:opacity-50"
                 >
                   Place Order
                 </button>

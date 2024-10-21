@@ -29,8 +29,8 @@ const Cart = ({ onClose }) => {
   };
 
   return (
-    <div className="h-full flex flex-col">
-      <div className="flex justify-between items-center p-4 border-b">
+    <div className="flex h-full flex-col">
+      <div className="flex items-center justify-between border-b p-4">
         <h2 className="text-xl font-bold">My Shopping Cart</h2>
         <button onClick={onClose} className="text-gray-500 hover:text-gray-700">
           <X size={24} />
@@ -41,7 +41,7 @@ const Cart = ({ onClose }) => {
         <>
           <div className="flex-grow overflow-y-auto p-4">
             {cartItems.map((item) => (
-              <div key={item._id} className="bg-white rounded-md mb-4 ">
+              <div key={item._id} className="mb-4 rounded-md bg-white">
                 <div className="flex items-center">
                   <div className="relative flex w-full flex-row justify-between px-1 py-4">
                     <div className="absolute z-40 -ml-1 -mt-2">
@@ -53,7 +53,7 @@ const Cart = ({ onClose }) => {
                       </button>
                     </div>
                     <div className="flex flex-row">
-                      <div className="size-16 max-w-16 min-w-16 rounded-xl overflow-hidden bg-[#d4d4d4] border border-[#d4d4d4] relative">
+                      <div className="relative size-16 min-w-16 max-w-16 overflow-hidden rounded-xl border border-[#d4d4d4] bg-[#d4d4d4]">
                         <Image
                           src={item.coverImage}
                           alt={item.title}
@@ -74,10 +74,10 @@ const Cart = ({ onClose }) => {
                     <p className="flex justify-end space-y-2 text-right text-sm">
                       ${item.newPrice} <span className="ml-1 inline">USD</span>
                     </p>
-                    <div className="ml-auto flex h-9 flex-row items-center rounded-full border border-neutral-200 ">
+                    <div className="ml-auto flex h-9 flex-row items-center rounded-full border border-neutral-200">
                       <button
                         onClick={() => handleDecreaseQuantity(item)}
-                        className="ease flex h-full min-w-[36px] max-w-[36px] flex-none items-center justify-center rounded-full p-2 transition-all duration-200 hover:border-neutral-800 hover:opacity-80 ml-auto"
+                        className="ease ml-auto flex h-full min-w-[36px] max-w-[36px] flex-none items-center justify-center rounded-full p-2 transition-all duration-200 hover:border-neutral-800 hover:opacity-80"
                       >
                         <Minus size={16} />
                       </button>
@@ -96,7 +96,7 @@ const Cart = ({ onClose }) => {
           </div>
 
           <div className="border-t p-4">
-            <div className="space-y-2 mb-4">
+            <div className="mb-4 space-y-2">
               <div className="flex justify-between">
                 <span>Taxes</span>
                 <span>$0.00 USD</span>
@@ -113,18 +113,23 @@ const Cart = ({ onClose }) => {
 
             <button
               onClick={handleProceedToCheckout}
-              className="w-full bg-primary text-black py-2 rounded-md  transition-colors"
+              className="w-full rounded-md bg-primary py-2 text-black transition-colors"
             >
               Proceed to Checkout
             </button>
           </div>
         </>
       ) : (
-        <div className="flex flex-col items-center justify-center flex-grow p-4 text-center">
-          <ShoppingCart size={64} className="text-gray-300 mb-4" />
-          <p className="text-xl font-semibold text-gray-600 mb-2">Your cart is empty</p>
-          <p className="text-gray-500 mb-4">Looks like you haven&apos;t added any items to your cart yet.</p>
-          <button onClick={onClose} className="bg-primary text-black py-2 px-4 rounded-md  transition-colors">
+        <div className="flex flex-grow flex-col items-center justify-center p-4 text-center">
+          <ShoppingCart size={64} className="mb-4 text-gray-300" />
+          <p className="mb-2 text-xl font-semibold text-gray-600">Your cart is empty</p>
+          <p className="mb-4 text-gray-500">
+            Looks like you haven&apos;t added any items to your cart yet.
+          </p>
+          <button
+            onClick={onClose}
+            className="rounded-md bg-primary px-4 py-2 text-black transition-colors"
+          >
             Continue Shopping
           </button>
         </div>

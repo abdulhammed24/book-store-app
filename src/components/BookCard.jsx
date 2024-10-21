@@ -22,28 +22,36 @@ const BookCard = ({ book }) => {
 
   return (
     <div className="rounded-lg transition-shadow duration-300">
-      <div className="flex flex-col sm:flex-row sm:items-center sm:h-72 sm:justify-center gap-4">
-        <div className="sm:h-72 sm:flex-shrink-0 border rounded-md">
+      <div className="flex flex-col gap-4 sm:h-72 sm:flex-row sm:items-center sm:justify-center">
+        <div className="rounded-md border sm:h-72 sm:flex-shrink-0">
           <Image
             src={book.coverImage}
             alt={book?.title || "Book cover"}
             width={200}
             height={300}
-            className="w-full h-auto bg-cover p-2 rounded-md cursor-pointer hover:scale-105 transition-all duration-200"
+            className="h-auto w-full cursor-pointer rounded-md bg-cover p-2 transition-all duration-200 hover:scale-105"
           />
         </div>
 
         <div>
-          <h3 className="text-lg font-secondary font-semibold hover:text-blue-600 mb-3">{book?.title}</h3>
-          <p className="text-gray-600 text-sm mb-5">
-            {book?.description?.length > 60 ? `${book.description.slice(0, 60)}...` : book?.description}
+          <h3 className="mb-3 font-secondary text-lg font-semibold hover:text-blue-600">
+            {book?.title}
+          </h3>
+          <p className="mb-5 text-sm text-gray-600">
+            {book?.description?.length > 60
+              ? `${book.description.slice(0, 60)}...`
+              : book?.description}
           </p>
-          <p className="font-medium text-sm mb-5">
-            ${book?.newPrice} <span className="line-through font-normal ml-2">${book?.oldPrice}</span>
+          <p className="mb-5 text-sm font-medium">
+            ${book?.newPrice}{" "}
+            <span className="ml-2 font-normal line-through">${book?.oldPrice}</span>
           </p>
 
-          <button onClick={() => handleAddToCart(book)} className="btn-primary !px-3 space-x-1 flex items-center gap-1">
-            <ShoppingCart className="w-5 h-5" />
+          <button
+            onClick={() => handleAddToCart(book)}
+            className="btn-primary flex items-center gap-1 space-x-1 !px-3"
+          >
+            <ShoppingCart className="h-5 w-5" />
             <span>Add to Cart</span>
           </button>
         </div>

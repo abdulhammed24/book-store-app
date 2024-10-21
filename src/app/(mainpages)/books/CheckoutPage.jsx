@@ -58,28 +58,28 @@ const CheckoutPage = () => {
   //   if (isLoading) return <div>Loading....</div>;
   return (
     <section>
-      <div className="min-h-screen p-6 bg-gray-100 flex items-center justify-center">
-        <div className="container max-w-screen-lg mx-auto">
+      <div className="flex min-h-screen items-center justify-center bg-gray-100 p-6">
+        <div className="container mx-auto max-w-screen-lg">
           <div>
             <div>
-              <h2 className="font-semibold text-xl text-gray-600 mb-2">Cash On Delevary</h2>
-              <p className="text-gray-500 mb-2">
+              <h2 className="mb-2 text-xl font-semibold text-gray-600">Cash On Delevary</h2>
+              <p className="mb-2 text-gray-500">
                 Total Price:
                 {/* ${totalPrice} */}
               </p>
-              <p className="text-gray-500 mb-6">
+              <p className="mb-6 text-gray-500">
                 Items:
                 {/* {cartItems.length > 0 ? cartItems.length : 0} */}
               </p>
             </div>
 
-            <div className="bg-white rounded shadow-lg p-4 px-4 md:p-8 mb-6">
+            <div className="mb-6 rounded bg-white p-4 px-4 shadow-lg md:p-8">
               <form
                 onSubmit={handleSubmit(onSubmit)}
-                className="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-3 my-8"
+                className="my-8 grid grid-cols-1 gap-4 gap-y-2 text-sm lg:grid-cols-3"
               >
                 <div className="text-gray-600">
-                  <p className="font-medium text-lg">Personal Details</p>
+                  <p className="text-lg font-medium">Personal Details</p>
                   <p>Please fill out all the fields.</p>
                 </div>
 

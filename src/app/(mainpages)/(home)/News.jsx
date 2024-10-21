@@ -9,7 +9,7 @@ import Image from "next/image";
 const News = () => {
   return (
     <section className="py-16">
-      <h2 className="text-3xl font-semibold mb-6">News </h2>
+      <h2 className="mb-6 text-3xl font-semibold">News </h2>
       <Swiper
         slidesPerView={1}
         spaceBetween={30}
@@ -33,12 +33,12 @@ const News = () => {
       >
         {news.map((item, index) => (
           <SwiperSlide key={index}>
-            <div className="flex flex-col sm:flex-row sm:justify-between items-center gap-12">
+            <div className="flex flex-col items-center gap-12 sm:flex-row sm:justify-between">
               <div className="py-4">
                 <Link href="/">
-                  <h3 className="text-lg font-medium hover:text-blue-500 mb-4">{item.title}</h3>
+                  <h3 className="mb-4 text-lg font-medium hover:text-blue-500">{item.title}</h3>
                 </Link>
-                <div className="w-12 h-[4px] bg-primary mb-5"></div>
+                <div className="mb-5 h-[4px] w-12 bg-primary"></div>
                 <p className="text-sm text-gray-600">{item.description}</p>
               </div>
               <div className="relative w-full overflow-hidden bg-[#fcf8f7] pt-[35%]">

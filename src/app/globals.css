@@ -27,7 +27,7 @@
   display: none !important;
 }
 .swiper-button-next {
-  @apply bg-white p-6 rounded-full z-50 shadow-md;
+  @apply z-50 rounded-full bg-white p-6 shadow-md;
 }
 
 .swiper-button-prev:after,
@@ -36,7 +36,7 @@
 }
 
 .btn-primary {
-  @apply bg-primary  px-12 py-2 rounded-md text-base font-secondary font-bold hover:bg-secondary hover:text-white transition-all duration-200 cursor-pointer;
+  @apply cursor-pointer rounded-md bg-primary px-12 py-2 font-secondary text-base font-bold transition-all duration-200 hover:bg-secondary hover:text-white;
 }
 
 .html {

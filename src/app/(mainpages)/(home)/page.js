@@ -7,18 +7,18 @@ import { Suspense } from "react";
 
 export default async function Home() {
   return (
-    <main className="min-h-screen max-w-screen-xl mx-auto px-4 py-6 font-primary">
+    <main className="mx-auto min-h-screen max-w-screen-xl px-4 py-6 font-primary">
       <Banner />
 
       <section className="py-10">
-        <h2 className="text-3xl font-semibold mb-6">Top Sellers</h2>
+        <h2 className="mb-6 text-3xl font-semibold">Top Sellers</h2>
 
         <Suspense fallback={<LoadingSkeleton />}>
           <TopSeller />
         </Suspense>
       </section>
       <section className="py-10">
-        <h2 className="text-3xl font-semibold mb-6">Recommended for you </h2>
+        <h2 className="mb-6 text-3xl font-semibold">Recommended for you </h2>
 
         <Suspense fallback={<LoadingSkeleton />}>
           <Recommended />
@@ -46,17 +46,20 @@ function LoadingSkeleton() {
     <div className="space-y-10">
       <Skeleton className="h-9 w-52" />
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 justify-between xl:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 justify-between gap-6 sm:grid-cols-2 xl:grid-cols-3">
         {Array.from({ length: 3 }).map((_, i) => (
-          <div key={i} className="flex flex-col sm:flex-row sm:items-center sm:h-72 sm:justify-center gap-4">
-            <div className="sm:h-72 sm:flex-shrink-0 rounded-md">
-              <Skeleton className="w-[250px] h-[300px] bg-cover p-2 rounded-md" />
+          <div
+            key={i}
+            className="flex flex-col gap-4 sm:h-72 sm:flex-row sm:items-center sm:justify-center"
+          >
+            <div className="rounded-md sm:h-72 sm:flex-shrink-0">
+              <Skeleton className="h-[300px] w-[250px] rounded-md bg-cover p-2" />
             </div>
 
             <div>
-              <Skeleton className="h-6 w-36 mb-3" />
-              <Skeleton className="h-4 w-36 mb-5" />
-              <Skeleton className="h-4 w-20 mb-5" />
+              <Skeleton className="mb-3 h-6 w-36" />
+              <Skeleton className="mb-5 h-4 w-36" />
+              <Skeleton className="mb-5 h-4 w-20" />
 
               <Skeleton className="h-10 w-20" />
             </div>

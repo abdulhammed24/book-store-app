@@ -31,11 +31,12 @@ const Checkout = () => {
     toast({
       title: "Order Placed",
       description: "Your order has been successfully placed!",
+      duration: 1200,
     });
 
     dispatch(clearCart());
 
-    router.push("/order-confirmation");
+    router.push("/order");
   };
 
   return (

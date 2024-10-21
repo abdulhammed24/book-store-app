@@ -28,10 +28,9 @@ const cartSlice = createSlice({
       } else {
         return state.filter((item) => item._id !== action.payload._id);
       }
-
-      clearCart: (state) => {
-        state.length = 0;
-      };
+    },
+    clearCart: (state) => {
+      state.length = 0;
     },
   },
 });

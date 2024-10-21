@@ -17,6 +17,7 @@ const BookCard = ({ book }) => {
     toast({
       title: "Added to Cart",
       description: `${book.title} has been added to your cart.`,
+      duration: 1200,
     });
   };
 

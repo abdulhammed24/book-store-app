@@ -24,8 +24,8 @@ const Cart = ({ onClose }) => {
   };
 
   const handleProceedToCheckout = () => {
-    onClose(); // Close the cart
-    router.push("/checkout"); // Navigate to the checkout page
+    onClose();
+    router.push("/checkout");
   };
 
   return (

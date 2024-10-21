@@ -113,7 +113,9 @@ const Navbar = () => {
             >
               <HiOutlineShoppingCart className="h-6 w-6" />
               {cartItemsCount > 0 ? (
-                <span className="text-sm font-semibold sm:ml-1">{cartItemsCount}</span>
+                <span className="w-6 text-sm font-semibold sm:ml-1">
+                  {cartItemsCount > 9 ? "9+" : cartItemsCount}
+                </span>
               ) : (
                 <span className="text-sm font-semibold sm:ml-1">0</span>
               )}

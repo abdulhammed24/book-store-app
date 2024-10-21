@@ -72,7 +72,8 @@ const Cart = ({ onClose }) => {
 
                   <div className="flex h-16 flex-col justify-between">
                     <p className="flex justify-end space-y-2 text-right text-sm">
-                      ${item.newPrice} <span className="ml-1 inline">USD</span>
+                      ${(item.newPrice * item.quantity).toFixed(2)}
+                      <span className="ml-1 inline">USD</span>
                     </p>
                     <div className="ml-auto flex h-9 flex-row items-center rounded-full border border-neutral-200">
                       <button

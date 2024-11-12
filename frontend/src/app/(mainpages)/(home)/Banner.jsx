@@ -1,5 +1,6 @@
 import Image from "next/image";
 import bannerImg from "/public/assets/banner.png";
+import { shimmer, toBase64 } from "@/utils/imageUtils";
 
 const Banner = () => {
   return (
@@ -14,7 +15,7 @@ const Banner = () => {
             priority
             sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
             className="absolute left-0 top-0 h-full w-full object-cover"
-            placeholder="blur"
+            placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}
           />
         </div>
       </div>

@@ -49,7 +49,7 @@ const News = () => {
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   className="object-cover"
-                  placeholder={`data:image/svg+xml;base64,${toBase64(shimmerr(700, 475))}`}
+                  placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}
                 />
               </div>
             </div>

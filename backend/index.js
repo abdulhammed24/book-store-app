@@ -10,9 +10,9 @@ const PORT = process.env.PORT || 5000;
 
 // app.use(cors({ origin: "https://abdulhammed-portfolio.onrender.com/" }));
 const allowedOrigins = [
-  "https://abdulhammed-portfolio.onrender.com",
+  "https://book-store-app-ru5c.onrender.com",
   "http://localhost:3000",
-  "https://theabdulhammed.netlify.app",
+  "https://buuk-store.netlify.app/",
 ];
 
 app.use(

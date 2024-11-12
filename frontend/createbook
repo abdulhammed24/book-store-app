@@ -1,0 +1,57 @@
+import React, { useState } from "react";
+
+const CreateBookForm = () => {
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [category, setCategory] = useState("");
+  const [coverImage, setCoverImage] = useState("");
+  const [oldPrice, setOldPrice] = useState("");
+  const [newPrice, setNewPrice] = useState("");
+  const [error, setError] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError(""); // Reset error state
+
+    const response = await fetch("/api/books", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        title,
+        description,
+        category,
+        coverImage,
+        oldPrice,
+        newPrice,
+      }),
+    });
+
+    if (!response.ok) {
+      const data = await response.json();
+      setError(data.message); // Set error message from response
+    } else {
+      // Handle successful book creation
+      const newBook = await response.json();
+      console.log("Book created:", newBook);
+    }
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <input
+        type="text"
+        value={title}
+        onChange={(e) => setTitle(e.target.value)}
+        placeholder="Title"
+        required
+      />
+      {/* Other input fields for description, category, etc. */}
+      <button type="submit">Create Book</button>
+      {error && <p style={{ color: "red" }}>{error}</p>} {/* Display error message */}
+    </form>
+  );
+};
+
+export default CreateBookForm;

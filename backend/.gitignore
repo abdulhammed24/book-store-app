@@ -1,0 +1,57 @@
+# Node.js dependencies
+node_modules/
+# Optional npm cache directory
+.npm
+# Yarn v1
+.yarn/
+yarn.lock
+# Yarn v2+
+.pnp.*
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Environment variables
+.env
+.env.*.local
+
+# Binaries and builds
+dist/
+build/
+.tmp/
+out/
+coverage/
+*.tsbuildinfo
+
+# Database files
+*.sqlite
+*.sqlite3
+*.db
+*.db-journal
+
+# Testing
+coverage/
+.nyc_output/
+.vscode-test/
+jest-html-reporters-*
+
+# IDE-specific files
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Optional Git hooks directory
+.husky/
+
+# Misc
+!.gitkeep
